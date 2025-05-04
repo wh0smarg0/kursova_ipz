@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    color: #ff6347;
+}
+
+.hero {
+    background: url('images/restaurant-hero.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.hero .btn {
+    background: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.hero .btn:hover {
+    background: #e5533a;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.menu {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-item {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.menu-item h3 {
+    font-size: 22px;
+    color: #333;
+}
+
+.menu-item span {
+    color: #ff6347;
+    font-weight: bold;
+}
+
+.order {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.order form {
+    display: flex;
+    flex-direction: column;
+}
+
+.order label {
+    margin-bottom: 5px;
+}
+
+.order select, .order input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.order button {
+    background: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.order button:hover {
+    background: #e5533a;
+}
+
+.contact {
+    padding: 20px;
+    text-align: center;
+}
