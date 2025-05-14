@@ -27,7 +27,6 @@ public class OrderItemController {
     private final OrderItemRepository orderItemRepository;
     private final MenuItemRepository menuItemRepository;
 
-    // Конструктор
     public OrderItemController(OrderItemService orderItemService, OrderRepository orderRepository,
                                OrderItemRepository orderItemRepository, MenuItemRepository menuItemRepository) {
         this.orderItemService = orderItemService;
@@ -38,27 +37,24 @@ public class OrderItemController {
 
     @PostMapping
     public ResponseEntity<OrderItem> createOrderItem(@RequestBody OrderItemRequest request) {
-        // Проверка на null для идентификатора заказа
+        System.out.println("Received Order ID: " + request.getOrderId());
+
         if (request.getOrderId() == null) {
             throw new IllegalArgumentException("Order ID cannot be null");
         }
-        // Перевірка на null
-        if (request.getMenuItem() == null) {
+        if (request.getMenuItemId() == null) {
             throw new IllegalArgumentException("Menu Item ID cannot be null");
         }
 
-        // Перевірка замовлення
         Order order = orderRepository.findById(request.getOrderId())
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with ID: " + request.getOrderId()));
 
-        // Перевірка пункту меню
-        MenuItem menuItemId = menuItemRepository.findById(request.getMenuItem())
-                .orElseThrow(() -> new ResourceNotFoundException("Menu Item not found with ID: " + request.getMenuItem()));
+        MenuItem menuItem = menuItemRepository.findById(request.getMenuItemId())
+                .orElseThrow(() -> new ResourceNotFoundException("Menu Item not found with ID: " + request.getMenuItemId()));
 
-        // Створення OrderItem
         OrderItem orderItem = new OrderItem();
         orderItem.setOrder(order);
-        orderItem.setMenuItem(menuItemId);
+        orderItem.setMenuItem(menuItem);
         orderItem.setQuantity(request.getQuantity());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(orderItemRepository.save(orderItem));
@@ -70,17 +66,14 @@ public class OrderItemController {
         return ResponseEntity.ok(menuItems);
     }
 
-
     @GetMapping("/order/{orderId}")
     public ResponseEntity<List<OrderItem>> getOrderItemsByOrderId(@PathVariable Long orderId) {
-        // Отримуємо всі елементи замовлення по ID
         List<OrderItem> orderItems = orderItemService.getItemsByOrderId(orderId);
         return ResponseEntity.ok(orderItems);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrderItem(@PathVariable Long id) {
-        // Видаляємо пункт замовлення
         orderItemService.deleteOrderItem(id);
         return ResponseEntity.noContent().build();
     }

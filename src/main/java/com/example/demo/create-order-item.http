@@ -1,0 +1,15 @@
+# curl -X POST your_server_url/order-items
+#  -H "Content-Type: application/json"
+#  -d '{"orderId": 66, "menuItemId": 123}'
+POST http://localhost:8082/order-items
+Content-Type: application/json
+
+{
+  "orderId": 66,
+  "menuItemId": 123
+}
+
+###
+
+
+

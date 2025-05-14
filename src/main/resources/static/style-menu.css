@@ -1,0 +1,345 @@
+/* Основні стилі */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: 'Commissioner', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/backphoto.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px; /* компенсує фіксований хедер */
+    color: #d8c6a2; /* Теплий кремовий текст */
+}
+
+/* Хедер */
+header {
+    background-color: #2c1b12; /* Темніший коричневий для хедера */
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #e6b78e; /* Кремовий текст для хедера */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легке тінювання для хедера */
+}
+
+/* Навігація в хедері */
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Вирівнювання по центру */
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li:last-child {
+    margin-right: 0; /* Прибрати відступ у останнього елемента */
+}
+
+/* Стилі для посилань */
+header nav ul li a {
+    color: #e6b78e; /* Світлий коричневий для посилань */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Додав анімацію при наведенні */
+}
+
+header nav ul li a.active {
+    text-decoration: underline;
+    color: #f39c12; /* Активний колір — жовтий для виділення */
+}
+
+header nav ul li a:hover {
+    color: #f39c12; /* Світло-жовтий при наведенні */
+}
+
+
+/* Контейнер */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+}
+
+/* Сайдбар */
+#sidebar {
+    width: 220px;
+    margin-right: 20px;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+    background-color: #9f6944; /* Коричневий відтінок для бічної панелі */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#sidebar h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #e6b78e; /* Теплий кремовий колір для заголовків */
+}
+
+#sidebar a {
+    display: block;
+    margin-bottom: 12px;
+    color: #e6b78e; /* Теплий кремовий колір для посилань */
+    text-decoration: none;
+    transition: all 0.3s ease, background-color 0.2s ease;
+    font-family: 'Commissioner', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#sidebar a.active {
+    color: #f39c12;
+    font-weight: 600;
+    border-left: 4px solid #f39c12;
+    padding-left: 10px;
+    background-color: #7b4d32; /* Коричнева активна кнопка */
+}
+
+#sidebar a:hover {
+    color: #f39c12;
+    transform: translateX(5px);
+    font-weight: 600;
+    background-color: #7a4c32;
+}
+
+/* Меню */
+.menu {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #9f6944; /* Коричнева панель для меню */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.menu h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #e6b78e; /* Теплий кремовий колір заголовка */
+}
+
+/* Елемент меню */
+.menu-item {
+    display: flex;
+    margin: 20px 0;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #f8f1e1; /* Світлий фон для елементів меню */
+}
+
+.menu-item:hover {
+    background-color: #e6b78e; /* Світлий коричневий фон на ховер */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.menu-item img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin-right: 24px;
+    border-radius: 12px;
+}
+
+.menu-item .item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    color: #3a2313; /* Темно-коричневий колір для заголовка */
+    margin: 0;
+}
+
+.menu-item .price {
+    font-weight: bold;
+    font-size: 22px;
+    color: #3a2313; /* Темно-коричневий колір для ціни */
+}
+
+.menu-item p {
+    margin: 12px 0;
+    color: #6d4b3d; /* Світло-коричневий колір для тексту */
+    font-size: 17px;
+}
+
+.menu-item button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    align-self: flex-start;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.menu-item button:hover {
+    background-color: #f39c12;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Футер */
+footer {
+    background-color: #2c1b12; /* Темний коричневий для футера */
+    color: #e6b78e; /* Кремовий текст для футера */
+    text-align: center;
+    padding: 16px 0;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+/* Категорії */
+.category {
+    background-color: #7e5b3c; /* Коричневий фон для категорій */
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #f39c12; /* Жовта межа для категорій */
+    transition: transform 0.2s;
+}
+
+.category:hover {
+    transform: translateY(-2px);
+}
+
+.category h2 {
+    font-size: 28px;
+    color: #f39c12; /* Жовтий колір для заголовків категорій */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 8px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.modal-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.modal-info h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.modal-price {
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.modal-description {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.order-button {
+    background-color: #3c2b23;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #5a3e33;
+}
+
+.ingredient-add {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.ingredient-add input {
+    flex: 1;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.ingredient-add button {
+    padding: 6px 12px;
+    background-color: #3c2b23;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

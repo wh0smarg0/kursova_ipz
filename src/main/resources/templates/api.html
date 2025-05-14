@@ -1,75 +1,205 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyiv Gastrobar - Головна</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>TASTE & GO - Головна</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --accent: #bb6900;
+            --dark: #1d120d;
+            --light: #9e6843;
+            --white: #e4b68d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
-        }
-        header {
-            background-color: #333;
-            padding: 10px 20px;
-        }
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+            font-family: 'Commissioner', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
         }
-        header nav ul li {
-            margin-right: 20px;
+
+        main {
+            flex: 1;
         }
-        header nav ul li a {
-            color: white;
+
+        body {
+            background-image: url('/static/images/backphoto.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: var(--dark);
+            padding: 12px 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--white);
             text-decoration: none;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 500;
         }
-        header nav ul li a.active {
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: var(--accent);
             text-decoration: underline;
         }
-        .hero {
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            background-color: #fff;
-            padding: 50px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 800px;
+            padding: 30px 20px;
+            min-height: calc(100vh - 100px); /* враховуючи header+footer */
+            justify-content: center;
         }
-        .hero h1 {
-            font-size: 36px;
-            color: #333;
+
+        .main-box {
+            background-color: var(--light);
+            border-radius: 16px;
+            width: 100%; /* Задаємо ширину на 100% */
+            max-width: 600px; /* Максимальна ширина боксу, можна збільшити, якщо потрібно */
+            padding: 60px 80px; /* Збільшено padding з 40px до 80px по боках */
+            font-size: 20px; /* збільшено з 18px до 20px */
+            margin-bottom: 40px; /* збільшено з 40px до 60px */
+            margin-top: 10px; /* збільшено з 20px до 30px */
+            box-shadow: 12px 12px 0 #000; /* збільшено тінь */
         }
-        .hero p {
-            font-size: 18px;
-            color: #666;
-        }
-        .hero .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
+
+        .main-box h2 {
+            font-size: 40px; /* збільшено з 32px до 40px */
+            margin: 0;
             font-weight: bold;
-            border-radius: 5px;
         }
-        .hero .btn:hover {
-            background-color: #555;
+
+        .main-box p {
+            margin: 10px 0; /* збільшено з 8px до 10px */
+            font-size: 18px; /* збільшено з 16px до 18px */
         }
+
+        .main-box .btn {
+            display: inline-block;
+            background-color: #1d120d;
+            color: var(--white);
+            margin: 20px 0; /* збільшено з 16px до 20px */
+            font-weight: bold;
+            font-size: 20px; /* збільшено з 18px до 20px */
+            padding: 18px 36px; /* збільшено з 14px 28px до 18px 36px */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .action-btn {
+            background-color: var(--light);
+            padding: 14px 28px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 5px 5px 0 #000;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .images-row {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 70px 50px;
+            margin-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .images-row img {
+            width: 500px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 5px 5px 0px #000;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Шахматне зміщення */
+        .images-row img:nth-child(odd) {
+            transform: translateY(-20px);
+        }
+
+        .images-row img:nth-child(even) {
+            transform: translateY(20px);
+        }
+
+        /* При наведенні — збільшення, збереження зміщення */
+        .images-row img:hover {
+            transform: scale(1.08) translateY(-10px);
+            box-shadow: 8px 8px 0px #000;
+            z-index: 2;
+        }
+
+        /* Нитка-гірлянда */
+        .images-row::before {
+            content: "";
+            position: absolute;
+            top: 50%; /* середина блоку з фото */
+            left: 0;
+            width: 100%;
+            height: 80px;
+            transform: translateY(-50%); /* щоб точно по центру */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="80" viewBox="0 0 1600 80"><path d="M0,40 Q200,0 400,40 T800,40 T1200,40 T1600,40" stroke="rgba(255,255,255,0.5)" stroke-width="4" fill="transparent"/></svg>') no-repeat center;
+            background-size: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         footer {
-            background-color: #333;
-            color: white;
+            background-color: var(--dark);
+            color: var(--white);
             text-align: center;
-            padding: 10px 0;
+            padding: 16px 0;
+            font-size: 16px;
+            margin-top: auto;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 10; /* Щоб футер був поверх інших елементів */
         }
     </style>
 </head>
 <body>
+
 <header>
     <nav>
         <ul>
@@ -81,14 +211,27 @@
     </nav>
 </header>
 
-<section class="hero">
-    <h1>Ласкаво просимо до Kyiv Gastrobar</h1>
-    <p>Смачна їжа, чудова атмосфера та привітне обслуговування!</p>
-    <a href="menu.html" class="btn">Переглянути меню</a>
-</section>
+<main class="main-content">
+    <div class="main-box">
+        <h2>TASTE & GO</h2>
+        <p>СМАКУЙ ЖИТТЯ НА ХОДУ</p>
+        <p>ЗАЙШОВ — ОБРАВ — ЗАМОВИВ</p>
+        <a href="menu.html" class="btn">ВІДКРИТИ МЕНЮ</a>
+        <p>ЗАБИРАЙ САМ АБО ЧЕКАЙ ДОСТАВКУ</p>
+        <p>НАСОЛОДЖУЙСЯ ДЕ ЗАВГОДНО</p>
+    </div>
+
+    <div class="images-row">
+        <img src="/static/images/image3.jpg" alt="Страва">
+        <img src="/static/images/image1.jpg" alt="Заклад">
+        <img src="/static/images/image4.jpg" alt="Офіціант">
+        <img src="/static/images/image2.jpg" alt="Бар">
+    </div>
+</main>
 
 <footer>
-    <p>&copy; 2025 KYIV GASTROBAR. Всі права захищені.</p>
+    <p>&copy; 2025 TASTE & GO. Всі права захищені.</p>
 </footer>
+
 </body>
 </html>

@@ -1,70 +1,139 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyiv Gastrobar - Контакти</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>TASTE & GO - Контакти</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            font-family: 'Commissioner', sans-serif;
         }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-image: url('/static/images/backphoto.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        /* Хедер */
         header {
-            background-color: #333;
-            padding: 10px 20px;
+            background-color: #2c1b12;
+            padding: 15px 20px;
+            position: relative;
+            z-index: 100;
         }
+
         header nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
+            justify-content: center;
         }
+
         header nav ul li {
             margin-right: 20px;
         }
+
         header nav ul li a {
-            color: white;
+            color: #e5c29f;
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
         }
+
         header nav ul li a.active {
             text-decoration: underline;
+            color: #ffb300;
         }
-        .contact {
+
+        header nav ul li a:hover {
+            color: #ffb300;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #2c1b12;
+            color: #e5c29f;
             text-align: center;
-            background-color: #fff;
-            padding: 30px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 600px;
-        }
-        .contact h1 {
-            font-size: 28px;
-            color: #333;
-        }
-        .contact p {
+            padding: 16px 0;
             font-size: 16px;
-            color: #666;
-            margin: 10px 0;
+            margin-top: auto;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
         }
-        .contact a {
-            color: #333;
+
+        footer a {
+            color: #e5c29f;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .contact a:hover {
-            text-decoration: underline;
+
+        footer a:hover {
+            color: #ffb300;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
+
+        .contact-section {
+            padding: 60px 20px;
         }
+
+        .info-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .info-box {
+            background-color: #b66a3c;
+            color: #fdf1e3; /* пастельний, як у хедері */
+            padding: 40px 50px;
+            border-radius: 20px;
+            width: 400px;
+            font-size: 22px;
+            line-height: 1.8;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box h2 {
+            margin-top: 0;
+            color: #f7f0e8;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+            border: 8px solid #3d2417;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
     </style>
 </head>
+
 <body>
 <header>
     <nav>
@@ -77,16 +146,32 @@
     </nav>
 </header>
 
-<section class="contact">
-    <h1>Контакти</h1>
-    <p>Якщо у вас є запитання, зв'яжіться з нами!</p>
-    <p>Email: <a href="mailto:info@restaurant.com">info@restaurant.com</a></p>
-    <p>Телефон: +1 (555) 123-4567</p>
-    <p>Адреса: вул. Ресторанна, 123, Київ, Україна</p>
+<section class="contact-section">
+    <div class="info-container">
+        <div class="info-box">
+            <h2>КОНТАКТИ</h2>
+            <p>вул. Ресторанна, 123, Київ, Україна</p>
+            <p>+1 (555) 123-4567</p>
+            <p>info@restaurant.com</p>
+        </div>
+        <div class="info-box">
+            <h2>РОБОЧИЙ ЧАС</h2>
+            <p>Понеділок – П’ятниця<br>08:00 – 22:00</p>
+            <p>Субота – Неділя<br>09:00 – 22:00</p>
+        </div>
+    </div>
+    <div class="map-container">
+        <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.7647162982826!2d30.51382097677177!3d50.43758067159027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5205f9e5e9%3A0xb28df97c67aaad46!2z0LLRg9C70LjRhtGPINCh0YLQsNC90YHQutC-0LUg0KXQvtC70YwsIDE2LCDQmtC40ZfQsiwgMTAwMDA!5e0!3m2!1suk!2sua!4v1715685572426!5m2!1suk!2sua"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </section>
 
+
 <footer>
-    <p>&copy; 2025 KYIV GASTROBAR. Всі права захищені.</p>
+    <p>&copy; 2025 TASTE & GO. Всі права захищені.</p>
 </footer>
 </body>
+
 </html>

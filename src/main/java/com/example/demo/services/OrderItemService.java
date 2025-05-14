@@ -32,7 +32,7 @@ public class OrderItemService {
         }
 
         // Проверяем наличие MenuItem ID
-        if (request.getMenuItem() == null) {
+        if (request.getMenuItemId() == null) {
             throw new IllegalArgumentException("Menu Item ID cannot be null");
         }
 
@@ -41,8 +41,8 @@ public class OrderItemService {
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with ID: " + request.getOrderId()));
 
         // Находим пункт меню по его ID
-        MenuItem menuItem = menuItemRepository.findById(request.getMenuItem())
-                .orElseThrow(() -> new ResourceNotFoundException("Menu Item not found with ID: " + request.getMenuItem()));
+        MenuItem menuItem = menuItemRepository.findById(request.getMenuItemId())
+                .orElseThrow(() -> new ResourceNotFoundException("Menu Item not found with ID: " + request.getMenuItemId()));
 
         // Создаём новый пункт заказа
         OrderItem orderItem = new OrderItem();
