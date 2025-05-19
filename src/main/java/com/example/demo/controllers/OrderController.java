@@ -21,7 +21,9 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Map<String, Object> requestData) {
         String customerName = (String) requestData.get("customer"); // Отримуємо ім'я клієнта
-        Order createdOrder = orderService.createOrder(customerName); // Створюємо замовлення за ім'ям клієнта
+        String deliveryMethod = (String) requestData.get("deliveryMethod");
+
+        Order createdOrder = orderService.createOrder(customerName, deliveryMethod); // Створюємо замовлення за ім'ям клієнта
         return ResponseEntity.ok(createdOrder);
     }
 
@@ -45,4 +47,5 @@ public class OrderController {
         orderService.deleteOrder(id);
         return ResponseEntity.noContent().build();
     }
+
 }

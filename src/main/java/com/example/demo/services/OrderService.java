@@ -7,6 +7,7 @@ import com.example.demo.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class OrderService {
@@ -19,20 +20,23 @@ public class OrderService {
         this.customerRepository = customerRepository;
     }
 
-    public Order createOrder(String customerName) {
-        // Отримуємо клієнта за ім'ям
+    public Order createOrder(String customerName, String deliveryMethod) {
         Customer customer = customerRepository.findByName(customerName)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
+                .orElseThrow(() -> new RuntimeException("Клієнт не знайдений: " + customerName));
 
-        // Створення нового замовлення
         Order order = new Order();
-        order.setCustomer(customer); // Прив'язуємо клієнта до замовлення
+        order.setCustomer(customer);
         order.setStatus("Pending");
 
-        // Збереження замовлення в базі даних
+        if ("inrest".equalsIgnoreCase(deliveryMethod)) {
+            int randomTable = new Random().nextInt(30) + 1;
+            order.setTableNumber(randomTable);
+        } else {
+            order.setTableNumber(null);
+        }
+
         return orderRepository.save(order);
     }
-
 
     public List<Order> getAllOrders() {
         return orderRepository.findAll();

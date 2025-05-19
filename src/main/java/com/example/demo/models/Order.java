@@ -16,6 +16,9 @@ public class Order {
     @JoinColumn(name = "customer_name")
     private Customer customer;
 
+    @JoinColumn(name = "`table`")
+    private Integer tableNumber;
+
     public Order() {
         this.status = "Pending"; // За замовчуванням
     }
@@ -42,5 +45,13 @@ public class Order {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public Integer getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(Integer tableNumber) {
+        this.tableNumber = tableNumber;
     }
 }
